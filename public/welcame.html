@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Node.js Welcome</title>
+<style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: white;
+  overflow-x: hidden;
+  transition: 0.4s ease;
+}
+
+/* Animated Gradient Background */
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #14532d, #064e3b);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header {
+  text-align: center;
+  padding: 60px 20px 30px;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+#themeToggle {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #22c55e;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+#themeToggle:hover {
+  background: #16a34a;
+}
+
+.grid {
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  transition: 0.4s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  color: #22c55e;
+}
+
+.card p {
+  margin-bottom: 20px;
+  color: #e2e8f0;
+}
+
+.card a {
+  text-decoration: none;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+/* Light Mode */
+body.light {
+  color: #111;
+}
+
+body.light .background {
+  background: linear-gradient(-45deg, #ffffff, #f1f5f9, #d1fae5, #bbf7d0);
+}
+
+body.light .card {
+  background: rgba(0,0,0,0.05);
+}
+
+body.light .card p {
+  color: #333;
+}
+</style>
+</head>
+<body>
+
+  <div class="background"></div>
+
+  <header>
+    <!-- Real Node.js SVG Logo -->
+    <img class="logo" src="https://nodejs.org/static/images/logo.svg" alt="Node.js Logo">
+    <h1>Welcome to Node.js</h1>
+    <button id="themeToggle">🌙 Toggle Theme</button>
+  </header>
+
+  <main class="grid">
+
+    <div class="card">
+      <h2>Documentation</h2>
+      <p>Read official Node.js documentation and API references.</p>
+      <a href="https://nodejs.org/docs" target="_blank">Explore →</a>
+    </div>
+
+    <div class="card">
+      <h2>Tutorials</h2>
+      <p>Step-by-step guides to build real projects.</p>
+      <a href="#">Start Learning →</a>
+    </div>
+
+    <div class="card">
+      <h2>Community</h2>
+      <p>Join the global Node.js developer ecosystem.</p>
+      <a href="#">Join →</a>
+    </div>
+
+    <div class="card">
+      <h2>Ecosystem</h2>
+      <p>Discover powerful tools and packages.</p>
+      <a href="#">Discover →</a>
+    </div>
+
+  </main>
+
+  <script >
+
+    // Fade-in animation on load
+window.addEventListener("load", () => {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card, index) => {
+    setTimeout(() => {
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }, index * 200);
+  });
+});
+
+// Dark / Light Mode Toggle
+const toggleBtn = document.getElementById("themeToggle");
+
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+
+  if (document.body.classList.contains("light")) {
+    toggleBtn.textContent = "🌞 Light Mode";
+  } else {
+    toggleBtn.textContent = "🌙 Dark Mode";
+  }
+});
+  </script>
+</body>
+</html>
