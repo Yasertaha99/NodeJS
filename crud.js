@@ -121,7 +121,7 @@ const server = http.createServer((req, res) => {
 
 });
 
-server.listen(3000, () => {
-    console.log(`Server is running at http://localhost:${server.address().port}/`);
+server.listen(8080, () => {
+  console.log('Server running at http://localhost:8080/');
 });
 
