@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Yasertaha99/NodeJS/issues"
   },
-  "homepage": "https://github.com/Yasertaha99/NodeJS#readme"
+  "homepage": "https://github.com/Yasertaha99/NodeJS#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
